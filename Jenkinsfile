@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'Node Project'
-    }
-
-  }
+  agent any
   stages {
     stage('Clone') {
       steps {
@@ -13,6 +8,10 @@ pipeline {
       }
     }
     stage('Install') {
+      agent any
+      environment {
+        node = 'node'
+      }
       steps {
         sh 'npm install'
       }
