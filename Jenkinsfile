@@ -7,14 +7,10 @@ pipeline {
         sh 'git clone https://github.com/bngams/sample-js-testing.git .'
       }
     }
-    stage('Install') {
+    stage('Install and run') {
       agent any
       steps {
         sh 'npm install'
-      }
-    }
-    stage('Test') {
-      steps {
         sh 'npm run test'
       }
     }
