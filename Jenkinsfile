@@ -9,9 +9,6 @@ pipeline {
     }
     stage('Install') {
       agent any
-      environment {
-        node = 'node'
-      }
       steps {
         sh 'npm install'
       }
