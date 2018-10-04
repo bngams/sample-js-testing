@@ -5,7 +5,6 @@ pipeline {
       steps {
         deleteDir()
         sh 'git clone https://github.com/bngams/sample-js-testing.git .'
-        sh 'npm install'
       }
     }
     stage('Install') {
