@@ -14,10 +14,6 @@ pipeline {
         sh 'npm run test'
       }
     }
-    stage('Build image') {
-      agent any
-      docker.build("testdevops/samplejs")
-    }
   }
   tools {
     nodejs 'node'
