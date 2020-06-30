@@ -1,21 +1,18 @@
 pipeline {
   agent any
+ 
+  tools { nodejs 'node12'}
+ 
   stages {
-    stage('Clone') {
+    stage('Install') {
       steps {
-        deleteDir()
-        sh 'git clone https://github.com/bngams/sample-js-testing.git .'
+         sh 'npm install'
       }
     }
-    stage('Install and run tests') {
-      agent any
+    stage('Test') {
       steps {
-        sh 'npm install'
-        sh 'npm run test'
+         sh 'npm run test'
       }
     }
-  }
-  tools {
-    nodejs 'node'
   }
 }
