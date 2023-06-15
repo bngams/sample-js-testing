@@ -1,18 +1,28 @@
 pipeline {
   agent any
- 
-  tools { nodejs 'Node 17'}
- 
   stages {
     stage('Install') {
       steps {
-         sh 'npm install'
+        sh 'npm install'
       }
     }
+
     stage('Test') {
       steps {
-         sh 'npm run test'
+        sh 'npm run test'
       }
     }
+
+    stage('Check node') {
+      agent any
+      steps {
+        sh '''node --version
+npm --version'''
+      }
+    }
+
+  }
+  tools {
+    nodejs 'Node 17'
   }
 }
