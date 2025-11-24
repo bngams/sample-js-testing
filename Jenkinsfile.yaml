@@ -1,0 +1,15 @@
+pipeline:
+  agent:
+    none:
+
+  tools:
+    nodejs: 'Node22'
+
+  stages:
+    - stage: 'Build'
+      steps: 
+        #- tool: name: 'Node22', type: 'nodejs'
+        - sh 'npm install'
+    - stage: 'Tests'
+      steps:
+        - sh 'npm run test'
